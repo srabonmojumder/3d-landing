@@ -1,0 +1,235 @@
+@use "../abstracts/tokens" as *;
+
+.thermalScannerSection {
+  padding: 100px 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(20, 10, 18, 0.4) 0%, rgba(5, 6, 8, 1) 90%);
+
+  .sectionHeaderCenter {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  }
+
+  .scannerComparisonWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: 520px;
+    margin: 0 auto;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 42, 95, 0.35);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 42, 95, 0.15);
+    cursor: ew-resize;
+    user-select: none;
+    background: #06070a;
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+  }
+
+  /* Layers */
+  .visibleLayer,
+  .thermalLayer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visibleLayer {
+    background: radial-gradient(circle at 50% 50%, #161922 0%, #090b0e 100%);
+  }
+
+  .thermalLayer {
+    background: radial-gradient(circle at 50% 50%, #2b0b18 0%, #060408 100%);
+  }
+
+  .hoodieGraphicWrapper {
+    position: relative;
+    width: 440px;
+    max-width: 90%;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hoodieSvg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+      transition: transform $transition-normal;
+    }
+
+    &.matteMode {
+      .hoodieSvg {
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+      }
+    }
+
+    &.thermalMode {
+      .hoodieSvg {
+        filter: drop-shadow(0 0 35px rgba(255, 42, 95, 0.45));
+      }
+    }
+
+    @media (max-width: 600px) {
+      width: 320px;
+      height: 280px;
+    }
+  }
+
+  .spectrumTag {
+    position: absolute;
+    top: 24px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+
+    &.leftTag {
+      left: 24px;
+      background: rgba(14, 16, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: $text-muted;
+    }
+
+    &.rightTag {
+      right: 24px;
+      background: rgba(255, 42, 95, 0.15);
+      border: 1px solid rgba(255, 42, 95, 0.45);
+      color: #ff5e84;
+    }
+  }
+
+  /* Slider Divider */
+  .sliderDivider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    z-index: 15;
+    transform: translateX(-50%);
+
+    .laserLine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: #ff2a5f;
+      box-shadow: 0 0 15px #ff2a5f, 0 0 30px #ff2a5f;
+    }
+
+    .sliderHandle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #141720;
+      border: 2px solid #ff2a5f;
+      border-radius: 100px;
+      box-shadow: 0 0 30px rgba(255, 42, 95, 0.6);
+      white-space: nowrap;
+
+      .handleArrow {
+        color: #ff2a5f;
+        font-size: 0.68rem;
+      }
+
+      .handleCenter {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #ffffff;
+
+        .tempBadge {
+          font-family: $font-mono;
+          font-weight: 800;
+          font-size: 0.8rem;
+          color: #ff5e84;
+        }
+      }
+    }
+  }
+
+  /* Thermal HUD */
+  .thermalHud {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 22px;
+    background: rgba(10, 12, 17, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    backdrop-filter: blur(12px);
+
+    @media (max-width: 576px) {
+      display: none;
+    }
+
+    .hudItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .hudLabel {
+        font-family: $font-mono;
+        font-size: 0.65rem;
+        color: $text-dim;
+        letter-spacing: 0.05em;
+      }
+
+      .hudValue {
+        font-family: $font-mono;
+        font-weight: 700;
+        font-size: 0.8rem;
+
+        &.red {
+          color: #ff5e84;
+        }
+
+        &.cyan {
+          color: $primary-cyan;
+        }
+
+        &.green {
+          color: #10b981;
+        }
+      }
+    }
+
+    .hudDivider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
