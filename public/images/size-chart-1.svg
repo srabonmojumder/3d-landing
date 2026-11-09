@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <style>
+      .header-bg { fill: #2d8b2d; }
+      .header-text { fill: #ffffff; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; font-size: 18px; text-anchor: middle; letter-spacing: 1px; }
+      .title-text { fill: #111111; font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 800; font-size: 20px; text-anchor: middle; letter-spacing: 2px; }
+      .row-even { fill: #f9fbf9; }
+      .row-odd { fill: #ffffff; }
+      .border-line { stroke: #e5e7eb; stroke-width: 1.2; }
+      .cell-text { fill: #333333; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 17px; text-anchor: middle; }
+      .size-text { fill: #2d8b2d; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 800; font-size: 18px; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <rect width="600" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  
+  <!-- Subtitle -->
+  <text x="300" y="34" class="title-text">T-SHIRT</text>
+  
+  <!-- Header Row -->
+  <rect x="20" y="48" width="560" height="46" rx="3" class="header-bg" />
+  <text x="113" y="77" class="header-text">T-SHIRT</text>
+  <text x="300" y="77" class="header-text">CHEST</text>
+  <text x="486" y="77" class="header-text">LENGTH</text>
+  
+  <!-- Rows -->
+  <!-- Row 1: S -->
+  <rect x="20" y="94" width="560" height="48" class="row-even" />
+  <text x="113" y="124" class="size-text">S</text>
+  <text x="300" y="124" class="cell-text">36</text>
+  <text x="486" y="124" class="cell-text">27</text>
+  <line x1="20" y1="142" x2="580" y2="142" class="border-line" />
+  <line x1="206" y1="94" x2="206" y2="142" class="border-line" />
+  <line x1="393" y1="94" x2="393" y2="142" class="border-line" />
+  
+  <!-- Row 2: M -->
+  <rect x="20" y="142" width="560" height="48" class="row-odd" />
+  <text x="113" y="172" class="size-text">M</text>
+  <text x="300" y="172" class="cell-text">38/40</text>
+  <text x="486" y="172" class="cell-text">28</text>
+  <line x1="20" y1="190" x2="580" y2="190" class="border-line" />
+  <line x1="206" y1="142" x2="206" y2="190" class="border-line" />
+  <line x1="393" y1="142" x2="393" y2="190" class="border-line" />
+
+  <!-- Row 3: L -->
+  <rect x="20" y="190" width="560" height="48" class="row-even" />
+  <text x="113" y="220" class="size-text">L</text>
+  <text x="300" y="220" class="cell-text">42</text>
+  <text x="486" y="220" class="cell-text">29</text>
+  <line x1="20" y1="238" x2="580" y2="238" class="border-line" />
+  <line x1="206" y1="190" x2="206" y2="238" class="border-line" />
+  <line x1="393" y1="190" x2="393" y2="238" class="border-line" />
+
+  <!-- Row 4: XL -->
+  <rect x="20" y="238" width="560" height="48" class="row-odd" />
+  <text x="113" y="268" class="size-text">XL</text>
+  <text x="300" y="268" class="cell-text">44/46</text>
+  <text x="486" y="268" class="cell-text">30</text>
+  <line x1="206" y1="238" x2="206" y2="286" class="border-line" />
+  <line x1="393" y1="238" x2="393" y2="286" class="border-line" />
+  
+  <rect x="20" y="94" width="560" height="192" fill="none" stroke="#e5e7eb" stroke-width="1.2" />
+</svg>
