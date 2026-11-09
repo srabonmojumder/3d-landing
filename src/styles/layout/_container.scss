@@ -1,0 +1,23 @@
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.container-narrow {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
