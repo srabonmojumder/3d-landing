@@ -1,0 +1,106 @@
+@use "../abstracts/tokens" as *;
+
+.floatingActionsContainer {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 576px) {
+    bottom: 20px;
+    right: 16px;
+    gap: 10px;
+  }
+
+  .floatingBtn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(14px);
+    transition: all $transition-normal;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+    .tooltip {
+      position: absolute;
+      right: 58px;
+      padding: 5px 12px;
+      background: rgba(10, 12, 17, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: $text-light;
+      font-family: $font-mono;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(6px);
+      transition: all $transition-fast;
+    }
+
+    &:hover .tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.btn3D {
+      background: rgba(16, 20, 28, 0.9);
+      border: 1px solid rgba(0, 245, 196, 0.3);
+      color: $primary-cyan;
+
+      &:hover {
+        background: rgba(0, 245, 196, 0.2);
+        box-shadow: 0 0 20px rgba(0, 245, 196, 0.5);
+        transform: scale(1.08);
+      }
+    }
+
+    &.btnSound {
+      background: rgba(16, 20, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: $text-muted;
+
+      &.active {
+        color: $primary-cyan;
+        border-color: $primary-cyan;
+        box-shadow: 0 0 15px rgba(0, 245, 196, 0.35);
+      }
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: scale(1.08);
+      }
+    }
+
+    &.btnOrder {
+      background: $primary-cyan;
+      border: 1px solid $primary-cyan;
+      color: #050608;
+      box-shadow: 0 0 25px rgba(0, 245, 196, 0.4);
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 35px rgba(0, 245, 196, 0.7);
+      }
+    }
+
+    &.btnTop {
+      background: rgba(16, 20, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: $text-dim;
+
+      &:hover {
+        color: $text-light;
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
