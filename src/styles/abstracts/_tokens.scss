@@ -1,0 +1,51 @@
+// Oryzo AI Brand Design Tokens
+// Inspired by oryzo.ai and following henleyfashion-front folder architecture
+
+// Primary & Accent Colors
+$primary-cyan: #00f5c4;
+$primary-cyan-light: #5effdb;
+$primary-cyan-dark: #00b894;
+$accent-amber: #ff9e2c;
+$accent-laser: #ff2a5f;
+$accent-violet: #8b5cf6;
+
+// Neutral & Background Shades (Oryzo Cyber Noir)
+$bg-void: #050608;
+$bg-dark: #0a0b0e;
+$bg-card: rgba(16, 18, 24, 0.75);
+$bg-card-hover: rgba(22, 25, 34, 0.85);
+$bg-card-solid: #12141a;
+$bg-surface: #181b22;
+$bg-light: #f8fafc;
+
+// Text Colors
+$text-light: #f8fafc;
+$text-muted: #94a3b8;
+$text-dim: #64748b;
+$text-dark: #0f172a;
+
+// Glassmorphism & Borders
+$border-glass: rgba(255, 255, 255, 0.09);
+$border-glass-bright: rgba(0, 245, 196, 0.35);
+$border-dark: #222632;
+$glass-blur: blur(16px);
+
+// Shadows & Glows
+$glow-cyan: 0 0 25px rgba(0, 245, 196, 0.25);
+$glow-cyan-lg: 0 0 50px rgba(0, 245, 196, 0.4);
+$glow-amber: 0 0 25px rgba(255, 158, 44, 0.3);
+$glow-laser: 0 0 25px rgba(255, 42, 95, 0.35);
+$shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+$shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.75);
+
+// Typography
+$font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-display: 'Syne', 'Outfit', 'Plus Jakarta Sans', sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+// Transitions
+$transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+

@@ -1,0 +1,33 @@
+@use "./tokens" as *;
+
+@mixin glass-panel {
+  background: $bg-card;
+  backdrop-filter: $glass-blur;
+  -webkit-backdrop-filter: $glass-blur;
+  border: 1px solid $border-glass;
+  border-radius: 16px;
+}
+
+@mixin cyber-glow($color: $primary-cyan) {
+  box-shadow: 0 0 25px rgba($color, 0.25);
+  border-color: rgba($color, 0.4);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin text-gradient($start: #ffffff, $end: $primary-cyan) {
+  background: linear-gradient(135deg, $start 0%, $end 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
