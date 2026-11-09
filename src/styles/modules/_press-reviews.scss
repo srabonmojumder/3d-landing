@@ -1,0 +1,124 @@
+@use "../abstracts/tokens" as *;
+
+.pressReviewsSection {
+  padding: 100px 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 18, 25, 0.5) 0%, rgba(5, 6, 8, 1) 90%);
+
+  .sectionHeaderCenter {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  }
+
+  .reviewsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .reviewCard {
+    background: rgba(14, 16, 22, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px 28px;
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all $transition-normal;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 245, 196, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 245, 196, 0.1);
+    }
+
+    .cardTop {
+      margin-bottom: 24px;
+
+      .outletHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+
+        .outletName {
+          font-family: $font-display;
+          font-size: 1.4rem;
+          font-weight: 800;
+          color: $text-light;
+        }
+
+        .starsRow {
+          display: flex;
+          align-items: center;
+          gap: 3px;
+        }
+      }
+
+      .accoladeBadge {
+        display: inline-block;
+        font-family: $font-mono;
+        font-size: 0.68rem;
+        color: $primary-cyan;
+        background: rgba(0, 245, 196, 0.08);
+        border: 1px solid rgba(0, 245, 196, 0.2);
+        padding: 4px 10px;
+        border-radius: 100px;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    .quoteBody {
+      margin-bottom: 28px;
+      position: relative;
+
+      .quoteIcon {
+        color: rgba(0, 245, 196, 0.3);
+        margin-bottom: 12px;
+      }
+
+      .quoteText {
+        font-size: 1rem;
+        color: #d1d5db;
+        line-height: 1.7;
+        font-style: italic;
+      }
+    }
+
+    .cardBottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 18px;
+
+      .authorName {
+        font-size: 0.82rem;
+        color: $text-dim;
+      }
+
+      .scoreTag {
+        font-family: $font-mono;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $primary-cyan;
+      }
+    }
+  }
+}
+
