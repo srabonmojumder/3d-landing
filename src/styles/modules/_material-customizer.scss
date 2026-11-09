@@ -1,0 +1,202 @@
+@use "../abstracts/tokens" as *;
+
+.materialCustomizerSection {
+  padding: 100px 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(16, 20, 28, 0.6) 0%, rgba(5, 6, 8, 1) 90%);
+
+  .sectionHeaderCenter {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  }
+
+  .finishesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .finishCard {
+    background: rgba(14, 17, 24, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 28px 24px;
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all $transition-normal;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    &.selected {
+      border-color: $primary-cyan;
+      background: rgba(18, 24, 32, 0.9);
+      box-shadow: 0 0 35px rgba(0, 245, 196, 0.25);
+    }
+
+    .cardBadgeRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+
+      .editionTag {
+        font-family: $font-mono;
+        font-size: 0.68rem;
+        color: $text-dim;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .activeTag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-family: $font-mono;
+        font-size: 0.68rem;
+        color: $primary-cyan;
+        background: rgba(0, 245, 196, 0.1);
+        border: 1px solid rgba(0, 245, 196, 0.3);
+        padding: 2px 8px;
+        border-radius: 100px;
+        font-weight: 700;
+      }
+    }
+
+    .swatchWrapper {
+      margin: 12px 0 24px;
+
+      .swatchCircle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform $transition-normal;
+
+        .innerCore {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, 0.4);
+          border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    &:hover .swatchCircle {
+      transform: scale(1.08);
+    }
+
+    .finishInfo {
+      width: 100%;
+      margin-bottom: 24px;
+
+      .finishName {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $text-light;
+        margin-bottom: 8px;
+      }
+
+      .finishDesc {
+        font-size: 0.84rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        min-height: 38px;
+      }
+
+      .specRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        color: $text-dim;
+        margin-bottom: 16px;
+      }
+
+      .priceRow {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 6px;
+
+        .price {
+          font-family: $font-display;
+          font-size: 1.8rem;
+          font-weight: 800;
+          color: $text-light;
+        }
+
+        .currency {
+          font-family: $font-mono;
+          font-size: 0.8rem;
+          color: $text-dim;
+        }
+      }
+    }
+
+    .selectBtn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      color: $text-light;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      &.active {
+        background: $primary-cyan;
+        color: #050608;
+        border-color: $primary-cyan;
+        box-shadow: 0 0 16px rgba(0, 245, 196, 0.4);
+      }
+    }
+  }
+}
+

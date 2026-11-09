@@ -1,0 +1,203 @@
+@use "../abstracts/tokens" as *;
+
+.microscopicSection {
+  padding: 100px 0;
+  position: relative;
+  background: #050608;
+
+  .sectionHeaderCenter {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  }
+
+  .microscopeCard {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #080a0e;
+    border: 1px solid rgba(0, 245, 196, 0.25);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 245, 196, 0.1);
+  }
+
+  .microscopeViewport {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: radial-gradient(circle at 50% 50%, #0d111a 0%, #050608 100%);
+    overflow: hidden;
+
+    .microCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      height: 380px;
+    }
+  }
+
+  .microHud {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(10, 12, 17, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+
+    .mono-tag {
+      font-size: 0.72rem;
+
+      &.cyan {
+        color: $primary-cyan;
+      }
+
+      &.amber {
+        color: $accent-amber;
+      }
+
+      &.green {
+        color: #10b981;
+      }
+    }
+
+    &.top-left {
+      top: 18px;
+      left: 18px;
+    }
+
+    &.top-right {
+      top: 18px;
+      right: 18px;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
+  .easterEggBanner {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(0, 245, 196, 0.12);
+    border: 1px solid rgba(0, 245, 196, 0.35);
+    border-radius: 100px;
+    color: $primary-cyan;
+    font-size: 0.78rem;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+    .bugIcon {
+      animation: blink 2s infinite ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      white-space: normal;
+      font-size: 0.7rem;
+      text-align: center;
+      width: 90%;
+    }
+  }
+
+  /* Controls */
+  .microscopeControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 28px;
+    background: rgba(14, 16, 22, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+
+    .zoomLevelButtons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .zoomBtn {
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 100px;
+        color: $text-muted;
+        font-size: 0.82rem;
+        font-weight: 600;
+        transition: all $transition-fast;
+
+        &:hover {
+          color: $text-light;
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        &.active {
+          color: #050608;
+          background: $primary-cyan;
+          border-color: $primary-cyan;
+          box-shadow: 0 0 16px rgba(0, 245, 196, 0.4);
+        }
+      }
+    }
+
+    .sliderRangeWrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .icon {
+        color: $text-dim;
+      }
+
+      .zoomSlider {
+        -webkit-appearance: none;
+        width: 140px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        outline: none;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: $primary-cyan;
+          cursor: pointer;
+          box-shadow: 0 0 10px $primary-cyan;
+        }
+      }
+
+      .zoomReadout {
+        font-family: $font-mono;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: $primary-cyan;
+        min-width: 55px;
+      }
+    }
+  }
+}
+
