@@ -1,0 +1,201 @@
+@use "../abstracts/tokens" as *;
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  padding: 16px 0;
+  transition: all $transition-normal;
+  background: transparent;
+
+  &.headerScrolled {
+    background: rgba(7, 8, 11, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 12px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .headerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brandLogo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+
+    .logoSymbol {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .innerDisc {
+        width: 16px;
+        height: 16px;
+        background: $primary-cyan;
+        border-radius: 50%;
+        box-shadow: 0 0 15px $primary-cyan;
+      }
+
+      .orbitRing {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 1px dashed rgba(0, 245, 196, 0.45);
+        border-radius: 50%;
+        animation: radarSpin 12s linear infinite;
+      }
+    }
+
+    .logoTextGroup {
+      display: flex;
+      flex-direction: column;
+
+      .brandName {
+        font-family: $font-display;
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0.08em;
+        color: $text-light;
+        line-height: 1;
+      }
+
+      .brandTag {
+        font-family: $font-mono;
+        font-size: 0.65rem;
+        color: $primary-cyan;
+        letter-spacing: 0.16em;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    .navLink {
+      color: $text-muted;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color $transition-fast;
+      position: relative;
+
+      &:hover {
+        color: $primary-cyan;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: $primary-cyan;
+        transition: width $transition-fast;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .audioToggleBtn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      color: $text-dim;
+      font-family: $font-mono;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      transition: all $transition-fast;
+
+      &:hover,
+      &.active {
+        color: $primary-cyan;
+        border-color: rgba(0, 245, 196, 0.35);
+        background: rgba(0, 245, 196, 0.08);
+      }
+
+      @media (max-width: 576px) {
+        .audioLabel {
+          display: none;
+        }
+      }
+    }
+
+    .headerCta {
+      padding: 10px 22px;
+      font-size: 0.88rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .mobileMenuToggle {
+      display: none;
+      color: $text-light;
+      padding: 6px;
+
+      @media (max-width: 992px) {
+        display: flex;
+      }
+    }
+  }
+
+  .mobileNavDropdown {
+    margin-top: 14px;
+    padding: 20px;
+    background: rgba(12, 14, 18, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .mobileNavLink {
+      text-align: left;
+      font-size: 1rem;
+      color: $text-muted;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+      &:hover {
+        color: $primary-cyan;
+      }
+    }
+
+    .mobileNavActions {
+      margin-top: 8px;
+    }
+  }
+}
+
